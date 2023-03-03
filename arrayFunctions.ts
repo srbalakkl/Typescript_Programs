@@ -33,6 +33,8 @@ result = a.map((value) => {
 });
 console.log(`map = ${result}`)
 
+
+
 //#map example2
 result = a.map((value) => {
   //NOTE: But if u specify the  condition then it will work according to it.
@@ -40,6 +42,8 @@ result = a.map((value) => {
 //  op:[20,23,40]
 });
 console.log(`map ${result}`)
+
+
 
 //#map example2 with accumulator
 result = a.map((acc,value) => {
@@ -51,6 +55,8 @@ result = a.map((acc,value) => {
 });
 console.log(`map with accumulator ${result}`)
 
+
+
 //#filter
 result = a.reduce((value) => {
   //NOTE: This will reduce all the value ang give 1st value
@@ -61,6 +67,8 @@ result = a.reduce((value) => {
 //  op:[20,23,40]
 });
 console.log(`Reduce without accumulator= ${result}`);
+
+
 
 //#filter With reduce method
 result = a.reduce((Accumulator,value) => {

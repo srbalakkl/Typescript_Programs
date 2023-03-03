@@ -58,7 +58,6 @@ Array.map
 Transform objects of an array
 Here I'm transforming array of object into an array of different objects.
 */
-
 let sizes: Array<string> = cars.map(cr => {
   if (cr.capacity <= 3) {
     return "small"
@@ -93,7 +92,7 @@ console.log('carProperties=', carProperties)
 console.log('************ Array.forEach *************')
 // Array.forEach
 // Array.forEach is used to Add a property to every object of an array
-console.log(cars)
+console.log('Before Foreach=',cars)
 cars.forEach(car => {
   car['size'] = "large";
   if (car.capacity <= 5) {
@@ -103,9 +102,9 @@ cars.forEach(car => {
     car['size'] = "small";
   }
 });
-console.log(cars)
+console.log('After Foreach=',cars)
 
-console.log('**************  Array.sort ***************')
+console.log('**************  Array.sort **************')
 /*
 Typically, the sorting is based on a value of a property every object has.
 We can use the Array.sort function,
@@ -142,12 +141,10 @@ console.log("total is : " + total );
 
 console.log(`***Testing***`)
 let obj = [{name:'asdf',adr:'asdf'}]
-
 console.log(`name = ${obj[0].name}`)
 
 let newObj = [{n:'asdf'},{v:10}]
 console.log('newObj=',newObj)
-
 obj = [{name:'wqer',adr:'qwer'}]
 
 console.log(`obj = ${obj[0].name}`)
@@ -174,3 +171,21 @@ let teenager = people.filter(function (person){
 })
 
 console.log('teenagers = ',teenager)
+
+
+console.log('********* Object Comparison using JSON.stringify ********')
+var person1 = {
+  name: 'Dhoni',
+  Age: 41,
+  Trophies: [2007, 2011, 2013]
+};
+
+//Creating person2 object
+var person2 = {
+  name: 'Kohli',
+  Trophies: [],
+  Age: 34,
+};
+
+console.log(JSON.stringify(person1) == JSON.stringify(person2))
+// document.write(_.isEqual(person1, person2));
