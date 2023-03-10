@@ -90,7 +90,6 @@ let carProperties = cars.map(cr => {
 console.log('carProperties=', carProperties)
 
 console.log('************ Array.forEach *************')
-// Array.forEach
 // Array.forEach is used to Add a property to every object of an array
 console.log('Before Foreach=',cars)
 cars.forEach(car => {
@@ -123,8 +122,10 @@ let sortedCars = cars.sort((c1, c2) =>
 console.log(sortedCars)
 
 console.log('*********** Some ************')
+// to find some cars have red color & cabrio type.
+console.log('Cars=',cars)
 const sm = cars.some(car => car.color === "red" && car.type === "cabrio");
-console.log(sm)
+console.log('Some=',sm)
 
 console.log('********** every ************')
 const evry = cars.every(car => car.capacity >= 0);
@@ -132,11 +133,18 @@ console.log(evry);
 
 // Note: Array.includes which is similar to Array.some, but works only for primitive types.
 
-console.log('********* reduce **********');
-const total = [0, 1, 2, 3].reduce(function (a, b) {
+console.log('********** reduce ***********');
+// Reduce is an array method that helps you convert an array into a single value.
+
+// InitialValue is the value you want to start with.
+// accumulator is the value returned from the previous iteration. It will be initialValue for the first iteration.
+//   currentValue is array item in the current iteration.
+const total = [0, 1, 2, 3];
+console.log("Bef Reduce: The total is:", + total)
+total.reduce(function (a, b) {
   return a + b;
 });
-console.log("total is : " + total );
+console.log("Aft Reduce:The total is : " + total );
 
 
 console.log(`***Testing***`)
