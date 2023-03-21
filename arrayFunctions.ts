@@ -9,7 +9,7 @@ result = a.find((value) => {
   //show 1st result 20 only among other 23,40
   //op:20
 });
-console.log(`find = ${result}`)
+console.log(`\nFind = ${result}`)
 
 
 
@@ -19,7 +19,7 @@ result = a.filter((value) => {
   //instead of single value it shows every thing
   //  op:[20,23,40]
 });
-console.log(`filter = ${result}`)
+console.log(`\nFilter = ${result}`)
 
 
 
@@ -31,7 +31,7 @@ result = a.map((value) => {
 
 //  op:[20,23,40]
 });
-console.log(`map = ${result}`)
+console.log(`\nEx1: map = ${result}`)
 
 
 
@@ -41,7 +41,7 @@ result = a.map((value) => {
   return '#'+ value // <--  HERE I'M USING CONCATENATION TO LIST THE RESULT INSTEAD OF BOOLEAN VALUES.
 //  op:[20,23,40]
 });
-console.log(`map ${result}`)
+console.log(`\nEx2: map ${result}`)
 
 
 
@@ -53,24 +53,21 @@ result = a.map((acc,value) => {
   //instead of single value it shows every thing
   //  op:[20,23,40]
 });
-console.log(`map with accumulator ${result}`)
+console.log(`\nBef map with accumulator: ${a}`)
+console.log(`Aft map with accumulator ${result}`)
 
 
 
-//#filter
+//#Reduce
 result = a.reduce((value) => {
-  //NOTE: This will reduce all the value ang give 1st value
-  //Accumulator is the previous value of the current node js value
+  //NOTE: This will reduce all the value and give 1st value
   return value
-  //instead of single value it shows every thing
-
-//  op:[20,23,40]
 });
-console.log(`Reduce without accumulator= ${result}`);
+console.log(`\nBef (Reduce without accumulator)=: ${a}`)
+console.log(`Aft (Reduce without accumulator)= ${result}`);
 
 
-
-//#filter With reduce method
+//#Reduce method with accumulator.
 result = a.reduce((Accumulator,value) => {
   //NOTE: This will reduce all the value ang give 1st value
   //Accumulator is the previous value of the current node js value
@@ -79,4 +76,5 @@ result = a.reduce((Accumulator,value) => {
 
 //  op:[20,23,40]
 });
-console.log(`Reduce with accumulator= ${result}`);
+console.log(`\nBefore Reduce with accumulator= ${a}`);
+console.log(`After Reduce with accumulator= ${result}`);
