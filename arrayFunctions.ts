@@ -59,16 +59,17 @@ console.log(`Aft map with accumulator ${result}`)
 
 
 //#Reduce
+console.log('************* reduce **************');
 result = a.reduce((value) => {
   //NOTE: This will reduce all the value and give 1st value
   return value
 });
-console.log(`\nBef (Reduce without accumulator)=: ${a}`)
+console.log(`\nBef (Reduce without accumulator)= ${a}`)
 console.log(`Aft (Reduce without accumulator)= ${result}`);
 
 
 //#Reduce method with accumulator.
-result = a.reduce((Accumulator,value) => {
+result = a.reduce((Accumulator: number, value: number) => {
   //NOTE: This will reduce all the value ang give 1st value
   //Accumulator is the previous value of the current node js value
   return Accumulator + value
@@ -78,3 +79,17 @@ result = a.reduce((Accumulator,value) => {
 });
 console.log(`\nBefore Reduce with accumulator= ${a}`);
 console.log(`After Reduce with accumulator= ${result}`);
+
+// Reduce is an array method that helps you convert an array into a single value.
+
+// InitialValue is the value you want to start with.
+// accumulator is the value returned from the previous iteration. It will be initialValue for the first iteration.
+//   currentValue is array item in the current iteration.
+const total:Array<number> = [0, 1, 2, 3];
+console.log("Bef Reduce: The total is:",total)
+let aftReduce = total.reduce(function (a, b) {
+  return a + b;
+});
+console.log("Aft Reduce:The total is : ",aftReduce);
+
+

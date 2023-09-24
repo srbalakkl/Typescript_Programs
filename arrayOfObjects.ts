@@ -6,7 +6,7 @@ const kvArray = [
 console.log('Normal Array of Objecjs:',kvArray,'\n')
 
 const reformattedArray = kvArray.map(({ key, value }) => ({ [key]: value }));
-console.log('Reformated Array of Objects:',reformattedArray); // [{ 1: 10 }, { 2: 20 }, { 3: 30 }]
+console.log('Reformatted Array of Objects:',reformattedArray); // [{ 1: 10 }, { 2: 20 }, { 3: 30 }]
 
 console.log('with Json Stringify',JSON.stringify(reformattedArray));
 
@@ -86,7 +86,6 @@ let carProperties = cars.map(cr => {
 
   return properties;
 })
-// console.log(`car Properties = ${carProperties}`);
 console.log('carProperties=', carProperties)
 
 console.log('************ Array.forEach *************')
@@ -124,7 +123,7 @@ console.log(sortedCars)
 console.log('*********** Some ************')
 // to find some cars have red color & cabrio type.
 console.log('Cars=',cars)
-const sm = cars.some(car => car.color === "red" && car.type === "cabrio");
+const sm = cars.some(car => car.color === "red" && car.type === "Cabrio");
 console.log('Some=',sm)
 
 console.log('********** every ************')
@@ -134,20 +133,17 @@ console.log(evry);
 // Note: Array.includes which is similar to Array.some, but works only for primitive types.
 
 console.log('********** reduce ***********');
-// Reduce is an array method that helps you convert an array into a single value.
-
-// InitialValue is the value you want to start with.
-// accumulator is the value returned from the previous iteration. It will be initialValue for the first iteration.
-//   currentValue is array item in the current iteration.
-const total = [0, 1, 2, 3];
-console.log("Bef Reduce: The total is:", + total)
-total.reduce(function (a, b) {
-  return a + b;
-});
-console.log("Aft Reduce:The total is : " + total );
+const objects = [{ x: 1 }, { x: 2 }, { x: 3 }];
+console.log('Before reduce:',objects)
+const sum = objects.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.x,
+    0,//<- Denote the current position of the value.
+);
+console.log('After reduce',sum); // 6
 
 
-console.log(`***Testing***`)
+
+console.log(`\n\n***Testing***`)
 let obj = [{name:'asdf',adr:'asdf'}]
 console.log(`name = ${obj[0].name}`)
 
