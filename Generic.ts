@@ -10,7 +10,7 @@ function identity<Type>(val:Type):Type{
 let v = identity<number>(10);
 console.log("value",v)
 
-/********** Generic Function **********/
+/********** Generic Function with extends Keyword **********/
 // Ex 1
 // since we are using extends number we can't use assign string as argument to testFun
 function testFun<T,U extends number>(value1:T,value2:U):object{
@@ -23,8 +23,11 @@ function testFun<T,U extends number>(value1:T,value2:U):object{
 console.log(testFun(10,12))
 /****************/
 
-// Ex 2
-const addUserId = <T> (obj:T) => {
+/******** Generics in Arrow Function ********/
+// const addUserId = <T> (obj:T) => {//<- Most common way to declare a generic
+const addUserId = <T,> (obj:T) => {// Note: <T,> is another syntax to define a Generics
+    // especially in .JSX (react) files
+    // to differentiate it from HTML tags like <h1> or <p> and etc
     const id = Math.random().toString(2);
     return {
         ...obj,
@@ -37,8 +40,9 @@ const user = {
 }
 
 const r =addUserId(user);
-console.log('val = ',r)
+console.log('Generic Arrow Function :',r)
 // console.log(`User = ${addUserId(user.name)}`)
+/***************/
 
 /***** Generic Interface ******/
 
@@ -74,5 +78,18 @@ class Sellable<T>{
 }
 
 const myClass = new Sellable<course>();
-myClass.add_to_cart({name:'adsf',author:'bala',book_number:123});
+myClass.add_to_cart({name:'java',author:'bala',book_number:123});
 /*******************/
+
+
+/******** Generics in Array ************/
+myClass.add_to_cart({name:'kotlin',author:'bala',book_number:123});
+myClass.add_to_cart({name:'golang',author:'bala',book_number:123});
+function getSearchProducts<T>(products:T[]):T{
+    return products[2]//<- 2 is the array index we want to find.
+}
+
+console.log('Search Product:',getSearchProducts<course>(myClass.cart))
+/************************/
+
+// Using Type Parameters in Generic Constraints  'especially key'.
