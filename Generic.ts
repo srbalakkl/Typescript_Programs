@@ -92,4 +92,19 @@ function getSearchProducts<T>(products:T[]):T{
 console.log('Search Product:',getSearchProducts<course>(myClass.cart))
 /************************/
 
-// Using Type Parameters in Generic Constraints  'especially key'.
+/*****Type Parameter with generic constrains especially with KEY********/
+
+/**
+ * Here the below code ensure we are not accidentally grabbing the property that doesn't exist
+ * */
+
+function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {
+    return obj[key];
+}
+
+let x = { a: 1, b: 2, c: 3, d: 4 };
+
+console.log(getProperty(x, "a"))//<- This doesn't allow us to enter the key that doesn't available in the 'x' object.
+// getProperty(x, "m");
+
+/***********************/
