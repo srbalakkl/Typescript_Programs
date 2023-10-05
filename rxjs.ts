@@ -1,18 +1,17 @@
-import * as rxjs from "rxjs";
-import {BehaviorSubject, ReplaySubject, Subject} from "rxjs";
+import {AsyncSubject, BehaviorSubject, ReplaySubject, Subject} from "rxjs";
 
 // tsc .\rxjs.ts | node -r esm .\rxjs.js <- cli command to run the js file.
 
-const obs$ = rxjs.of(1,2,3,4);
-obs$.subscribe((ob)=>{
-    console.log(`ob- ${ob}`)
-})
+// const obs$ = rxjs.of(1,2,3,4);
+// obs$.subscribe((ob)=>{
+//     console.log(`ob- ${ob}`)
+// })
+//
+// obs$.subscribe({
+//     next: x => console.log(`value ${x}`)
+// })
 
-obs$.subscribe({
-    next: x => console.log(`value ${x}`)
-})
-
-/******** Subject ********/
+console.log(`******** Subject ********`);
 /**
  * Subject will simply broadcast every variable available in it.
  *
@@ -26,7 +25,7 @@ sub.next(2);
 sub.subscribe(console.log)
 sub.next(3);
 
-/******** Behaviour Subject ********/
+console.log(`******** Behaviour Subject ********`)
 
 /**
  * Behaviour Subject is used to multicast and memorize a value that should be
@@ -41,16 +40,35 @@ bs.next(2);
 bs.subscribe(console.log)
 bs.next(3);
 
-/******* ReplySubject ******/
+console.log(`*********** ReplySubject ***********`)
 
 /**
  * ReplySubject Caches as many values as you want and forwards
  * them to the subscription as soon as the subscriber comes in.
  *
  * */
+
+
 const rs = new ReplaySubject<number>();
 rs.subscribe(console.log)
 rs.next(1);
 rs.next(2);
 rs.subscribe(console.log)
 rs.next(3);
+
+
+console.log(`********* Async Subject ********`)
+/**
+ * The AsyncSubject multicasts the last value it has received when it completes.
+ * **/
+
+const subject = new AsyncSubject<number>();
+subject.subscribe(console.log);
+subject.next(1);
+subject.next(2);
+subject.subscribe(console.log);
+subject.next(3);
+subject.complete(); // log: 3, 3
+
+
+
