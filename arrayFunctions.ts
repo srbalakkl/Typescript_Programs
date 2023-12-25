@@ -92,4 +92,6 @@ let aftReduce = total.reduce(function (a, b) {
 });
 console.log("Aft Reduce:The total is : ",aftReduce);
 
+/*******************include function in array ******************/
+console.log('Does 0 available in the array ?',a.includes(0));
 
