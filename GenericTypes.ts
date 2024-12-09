@@ -15,6 +15,12 @@ let boxed: Boxed = {value: 'hello'};
  *
  * @desc **Generic Interface** have pieces that can be swapped out each time a usage is declared.
  *
+ * note: In generics, Type parameter should appear twice, If a type parameter only appears in one location,
+ * strongly reconsider if you actually need it.
+ *
+ * The type parameters should only be used for input to the output but if you only use it for the input or the output
+ * then there is no relationship between them.
+ *
  * */
 
 interface Boxed1<T> {
