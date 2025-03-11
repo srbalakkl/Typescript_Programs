@@ -125,6 +125,7 @@ console.log(sortedCars)
 
 console.log('*********** Some ************')
 // to find some cars have red color & cabrio type.
+console.log(typeof cars)
 console.log('Cars=', cars)
 const sm = cars.some(car => car.color === "red" && car.type === "Cabrio");
 console.log('Some=', sm)
