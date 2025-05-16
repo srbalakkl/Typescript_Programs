@@ -16,7 +16,7 @@ console.log("\n ********* Filter Method **********")
 result = a.filter((value) => {
     // console.log(value)
     return value > 10
-    //instead of single value it shows every thing
+    //instead of single value(or unlike find()) it shows every thing
     //  op:[20,23,40]
 });
 console.log(`\nFilter = ${result}`)

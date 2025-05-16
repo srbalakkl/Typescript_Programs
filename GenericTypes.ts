@@ -67,20 +67,22 @@ state.set('XYZ')
 console.log('state=', state.get())//Type:string
 
 /**
- * @desc Generics using literal ( not primitives like string,integer & etc) / Primitive type vs Literals (const T) using generics
+ * @desc Generics using literal (not primitives like string, integer, etc.) / Primitive type vs Literals (const T) using generics
  * */
 
 interface Box<T> {
     value: T;
 }
 
-function createBox<const T>(value: T): Box<T> {//<- on <const T> we are declaring it as const type (i.e. exact value type)
+function createBox<const T>(value: T): Box<T> {//<- on <const T> we are declaring it as a const type
+    // (i.e., exact value type)
     return {value}
 }
 
 let box1 = createBox('abc')
 
-if (box1.value === 'def') {//comparing two literal type ('abc' with 'def') is unnecessary so it shows some error.
+// if (box1.value === 'def') {//comparing two literal types ('abc' with 'def') is unnecessary, so it shows some error.
+if (box1.value === 'abc') { //<- Unnecessary because it box1.value is string literal.
     throw new Error('What ?')
 }
 
@@ -90,8 +92,8 @@ if (box1.value === 'def') {//comparing two literal type ('abc' with 'def') is un
  * the keys of a type, providing a union of its property names.
  */
 
-// function get<T, K>(obj: T, key: keyof T) {//if you use this way (i.e. Without using extends keyword) the output/return type may be a string or boolean instead of exact value.
-function get<T, K extends keyof T>(obj: T, key: K) {//<- Here,we are getting the exact value.
+// function get<T, K>(obj: T, key: keyof T) { //if you use this way (i.e., Without using extends keyword) the output/return type may be a string or boolean instead of exact value.
+function get<T, K extends keyof T>(obj: T, key: K) { //<- Here, we are getting the exact value.
     return obj[key];
 }
 
@@ -112,12 +114,12 @@ declare function getIndexOf<const T>(
     // value1: T[], value2: T
 ): T;
 
-getIndexOf(["blue","feta"],'blua')//This would only work if we're expanding the type of T (i.e. value1: T[], value2: T )
-getIndexOf(["blue","feta"],'blue')//We are getting the expected value because of NoInfer<T>
+getIndexOf(["blue", "feta"], 'blua')//This would only work if we're expanding the type of T (i.e. value1: T[], value2: T )
+getIndexOf(["blue", "feta"], 'blue')//We are getting the expected value because of NoInfer<T>
 
-/********** Generic Function with extends Keyword **********/
+/********** Generic Function with extents Keyword **********/
 // Ex 1
-// since we are using extends number we can't use assign string as argument to testFun
+// since we are using extends number, we can't use assign string as an argument to testFun
 function testFun<T, U extends number>(value1: T, value2: U): object {
     let v2 = value2.toString();
     return {
@@ -199,10 +201,10 @@ function getSearchProducts<T>(products: T[]): T {
 console.log('Search Product:', getSearchProducts<course>(myClass.cart))
 /************************/
 
-/*****Type Parameter with generic constrains especially with KEY********/
+/*****Type Parameter with generic constraining, especially with KEY********/
 
 /**
- * Here the below code ensure we are not accidentally grabbing the property that doesn't exist
+ * Here the below code ensures we are not accidentally grabbing the property that doesn't exist
  * */
 
 function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {

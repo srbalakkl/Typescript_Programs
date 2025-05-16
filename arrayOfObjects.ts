@@ -145,6 +145,44 @@ const sum = objects.reduce(
 );
 console.log('After reduce', sum); // 6
 
+console.log('********* Grouping items by using reduce method (NOTE: This can also be achieved by filter operator) ********');
+const objs = [
+    {
+        name: 'bala',
+        age: 20,
+        gender: 'male'
+    },
+    {
+        name: 'asdf',
+        age: 30,
+        gender: 'female'
+    },
+    {
+        name: 'asdf',
+        age: 45,
+        gender: 'male'
+    },
+    {
+        name: 'qwer',
+        age: 54,
+        gender: 'male'
+    },
+    {
+        name: 'oioipi',
+        age: 30,
+        gender: 'female'
+    }
+];
+
+console.log('Before Groups: ',objs)
+
+console.log('After Groups',objs.reduce((acc,val)=> {
+    if (val.age == 30)
+        acc.push(val)
+
+    return acc
+},[]))
+
 
 console.log(`\n\n***Testing***`)
 let obj = [{name: 'asdf', adr: 'asdf'}]
@@ -203,7 +241,7 @@ console.log(`***************** Object.prototype ****************`);
 /**
  * @description
  * The Object.defineProperty() static method defines a new property directly on an object,
- * or modifies an existing property on an object, and returns the object.
+ * or modifies an existing property on an object and returns the object.
  *
  * Property descriptors present in objects come in two main flavors:    data descriptors and accessor descriptors.
  *
