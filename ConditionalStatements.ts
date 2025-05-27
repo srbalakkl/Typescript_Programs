@@ -1,4 +1,4 @@
-// **** `for in` statement in javascript ****
+// **** `for in` statement in JavaScript ****
 // let objs = {
 //     0: {code: 'bal', name: 'bala'},
 //     1: {code: 'vim', name: 'vimal'}
