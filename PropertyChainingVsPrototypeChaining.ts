@@ -20,15 +20,16 @@ console.log(person.address.coordinates.lat); // 40.7128
 console.log('\n\n********** Prototype chain example ***********')
 let animal = {
     species: 'Unknown',
-    makeSound: function() {
+    makeSound: function () {
         return 'Some sound';
     }
 };
 
-let dog = Object.create(animal);
+let dog = Object.create(animal);//<- prototype-based inheritance,
+// basically here,The dog has the inherited property (i.e., property link of animal.) of an animal.
+// it is not a shallow copy or deep copy.
 dog.breed = 'Golden Retriever';
-
-console.log(dog)
+console.log(dog)//only breed name because `animal` is the linked property of the `dog` not its own property.
 
 // Property lookup follows the prototype chain
 console.log(dog.breed); // "Golden Retriever" (own property)
