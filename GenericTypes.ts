@@ -29,11 +29,11 @@ interface Boxed1<T> {
 
 let box: Boxed1<string>;
 
-// box.value = 1;//<- This will give us error because we assigned string type as a generic type to this box variable.
+// box.value = 1;//<- This will give us an error because we assigned a string type as a generic type to this box variable.
 
 /**
  *
- * @title **Identity function**  (one of the Generic Function)
+ * @title **Identity function** (one of the Generic Function)
  *
  * @desc **Identity** function is common in all programming languages This will just take the value and returns that same value.
  * */

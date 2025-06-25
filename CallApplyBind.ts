@@ -1,5 +1,5 @@
 /**
- * The call,apply,bind methods can be used when you have to SHARE / REUSE THE METHODS available inside the object.
+ * The call,apply,bind methods are used to reuse the methods available inside the object.
  *
  * `call()` function is basically used for setting the `this` context for a function call.
  *
@@ -14,12 +14,11 @@ const person = {
     }
 }
 
-const anotherPerson = {
-    name: 'bob'
-}
-
 person.greet('Hello.....', '!');
 
+const anotherPerson = {
+    name: 'bob',
+}
 // The first argument to call() sets 'this'. Subsequent arguments are passed to the function.
 person.greet.call(anotherPerson, 'hi..', '.');//<- here,
 // I'm sending anotherPerson as the context for the person object.
