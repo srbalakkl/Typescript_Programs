@@ -16,9 +16,13 @@ p.greet();
 
 
 function loggedMethod(originalMethod: any, _context: any) {
-    function replacementMethod(this: any, ...args: any[]) {
+    // function replacementMethod(this: any, ...args: any[]) {
+    function replacementMethod(target, key, descriptor) {
+
+        console.log(descriptor?.value)
+
         console.log("LOG: Entering method.")
-        const result = originalMethod.call(this, ...args);
+        const result = originalMethod.call(this, ...args);//<- Here this context is the `Person` class.
         console.log("LOG: Exiting method.")
         return result;
     }

@@ -75,7 +75,7 @@ result = a.reduce((Accumulator: number, value: number) => {
     //instead of single value it shows every thing
 
 //  op:[20,23,40]
-});
+},0);
 console.log(`\nBefore Reduce with accumulator= ${a}`);
 console.log(`After Reduce with accumulator= ${result}`);
 
@@ -85,7 +85,7 @@ console.log(`After Reduce with accumulator= ${result}`);
 // accumulator is the value returned from the previous iteration. It will be initialValue for the first iteration.
 //   currentValue is array item in the current iteration.
 const total: Array<number> = [0, 1, 2, 3];
-console.log("Bef Reduce: The total is:", total)
+console.log("\nBef Reduce: The total is:", total)
 let aftReduce = total.reduce(function (a, b) {
     return a + b;
 });
@@ -95,7 +95,7 @@ console.log("Aft Reduce:The total is : ", aftReduce);
 console.log('Does 0 available in the array ?', a.includes(0));
 
 console.log("\n********* For Each ***********")
-console.log(`Array= ${a}`)
+console.log(`Array= ${a}\n`)
 a.forEach((item,index,array) => {
     console.log(`Array = ${array}`)
     console.log(`Item = ${item}`)

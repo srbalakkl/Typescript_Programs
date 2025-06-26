@@ -1,15 +1,28 @@
 console.log("Array Iterative Methods")
+
 const kvArray = [
     {key: 1, value: 10},
     {key: 2, value: 20},
     {key: 3, value: 30},
 ];
+
 console.log('Normal Array of Objects:', kvArray, '\n')
 
-const reformattedArray = kvArray.map(({key, value}) => ({[key]: value}));
-console.log('Reformatted Array of Objects:', reformattedArray); // [{ 1: 10 }, { 2: 20 }, { 3: 30 }]
+const reformattedArray = kvArray.map(({key, value}) => (
+    {[key]: value}
+));
 
-console.log('with Json Stringify', JSON.stringify(reformattedArray));
+// this can also be written as below.
+// but when you open a curly brace after an aero operator (=>) you must use the return keyword
+// for map operators (or for the operators that return an array)
+
+const test = kvArray.map(({key, value}) => {
+    return {[key]: value}
+});
+
+console.log('\nReformatted Array of Objects:', reformattedArray); // [{ 1: 10 }, { 2: 20 }, { 3: 30 }]
+
+console.log('\nWith Json Stringify', JSON.stringify(reformattedArray), '\n');
 
 
 // ***************FreeCodeCamp.com**************
@@ -43,7 +56,7 @@ let cars = [
     },
 ];
 
-console.log(`\n\nBefore Slice()\n`, cars);
+console.log(`\n\nBefore Splice()\n`, cars);
 
 let car = {
     "color": "red",
@@ -53,15 +66,16 @@ let car = {
 }
 
 cars.splice(1, 0, car);//1 -> starting position, 0 -> delete count, car object to insert
-console.log(`\nAfter Slice()`, cars)
+console.log(`\nAfter Splice()`, cars)
 
 console.log('\n************ Array.map *************')
 /*
 Array.map
 Transform objects of an array
-Here I'm transforming array of object into an array of different objects.
+Here I'm transforming an array of object into an array of different objects.
 */
 let sizes: Array<string> = cars.map(cr => {
+    // The major difference between forEach and map operator is forEach operator doesn't return a new array like a map operator.
     if (cr.capacity <= 3) {
         return "small"
     }
@@ -91,8 +105,9 @@ let carProperties = cars.map(cr => {
 })
 console.log('carProperties=', carProperties)
 
-console.log('************ Array.forEach *************')
+console.log('\n************ Array.forEach *************')
 // Array.forEach is used to Add a property to every object of an array
+// The major difference between forEach and map operator is forEach operator doesn't return a new array like map operator.
 console.log('Before Foreach=', cars)
 cars.forEach(car => {
     car['size'] = "large";
@@ -105,38 +120,35 @@ cars.forEach(car => {
 });
 console.log('After Foreach=', cars)
 
-console.log('**************  Array.sort **************')
+console.log('\n**************  Array.sort **************');
 /*
-Typically, the sorting is based on a value of a property every object has.
-We can use the Array.sort function,
+Typically, the sorting is based on the value of a property every object has.
+We can use the Array.sort function.
 */
 
 // NOTE: Make sure to always add the case for zero
 // when the compared value of both objects is the same to avoid unnecessary swaps.
 
 
-// let sortedCars = cars.sort((c1, c2) => (c1.capacity < c2.capacity) ? 1 : (c1.capacity > c2.capacity) ? -1 : 0);
-// console.log(sortedCars);
-
 let sortedCars = cars.sort((c1, c2) =>
     (c1.capacity < c2.capacity) ? 1 : (c1.capacity > c2.capacity) ? -1 : 0
 );
 console.log(sortedCars)
 
-console.log('*********** Some ************')
+console.log('\n*********** Some ************')
 // to find some cars have red color & cabrio type.
 console.log(typeof cars)
 console.log('Cars=', cars)
 const sm = cars.some(car => car.color === "red" && car.type === "Cabrio");
 console.log('Some=', sm)
 
-console.log('********** every ************')
+console.log('\n********** every ************')
 const evry = cars.every(car => car.capacity >= 0);
 console.log(evry);
 
 // Note: Array.includes which is similar to Array.some, but works only for primitive types.
 
-console.log('********** reduce ***********');
+console.log('\n********** reduce ***********');
 const objects = [{x: 1}, {x: 2}, {x: 3}];
 console.log('Before reduce:', objects)
 const sum = objects.reduce(
@@ -145,7 +157,7 @@ const sum = objects.reduce(
 );
 console.log('After reduce', sum); // 6
 
-console.log('********* Grouping items by using reduce method (NOTE: This can also be achieved by filter operator) ********');
+console.log('\n********* Grouping items by using reduce method (NOTE: This can also be achieved by filter operator) ********');
 const objs = [
     {
         name: 'bala',
@@ -174,14 +186,14 @@ const objs = [
     }
 ];
 
-console.log('Before Groups: ',objs)
+console.log('Before Groups: ', objs)
 
-console.log('After Groups',objs.reduce((acc,val)=> {
+console.log('After Groups', objs.reduce((acc, val) => {
     if (val.age == 30)
         acc.push(val)
 
     return acc
-},[]))
+}, []))
 
 
 console.log(`\n\n***Testing***`)

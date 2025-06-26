@@ -14,10 +14,10 @@ console.log(b);
 
 /**
  *
- * You can end a destructuring pattern with a rest property ...rest.
+ * You can end a destructuring pattern with a rest parameter ...rest.
  * This pattern will store all remaining properties of the object or array into a new object or array.
  *
  * */
 
-[a, b, ...rest] = [10, 20, 30, 40, 50];
-console.log(...rest)
+[a, b, ...rest] = [10, 20, 30, 40, 50];//Here, ...rest is called as a rest parameter.
+console.log(...rest)//Here, ...rest is called as spread operator

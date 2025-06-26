@@ -27,7 +27,7 @@ person.greet.call(anotherPerson, 'hi..', '.');//<- here,
 // (i.e., The value of 'this' = anotherPerson instead of person)
 
 // The first argument to apply() sets 'this'. The second argument is an array of arguments for the function.
-person.greet.apply(anotherPerson, ['hello!!', 'da']);
+person.greet.apply(anotherPerson, ['hello!!', 'da'] );
 
 // bind() creates a new function with 'this' bound to the first argument.
 // It doesn't call the function immediately.
