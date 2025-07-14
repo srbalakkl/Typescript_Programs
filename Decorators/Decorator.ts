@@ -1,3 +1,16 @@
+function loggedMethod(originalMethod: any, _context: any) {
+
+    function replacementMethod(this: any, ...args: any[]) {
+        console.log("LOG: Entering method.")
+        const result = originalMethod.call(this, ...args);
+        console.log("LOG: Exiting method.")
+        return result;
+    }
+
+    return replacementMethod;
+}
+
+
 class Person {
     name: string;
 
@@ -13,20 +26,3 @@ class Person {
 
 const p = new Person("Ron");
 p.greet();
-
-
-function loggedMethod(originalMethod: any, _context: any) {
-    // function replacementMethod(this: any, ...args: any[]) {
-    function replacementMethod(target, key, descriptor) {
-
-        console.log(descriptor?.value)
-
-        console.log("LOG: Entering method.")
-        const result = originalMethod.call(this, ...args);//<- Here this context is the `Person` class.
-        console.log("LOG: Exiting method.")
-        return result;
-    }
-
-    return replacementMethod;
-}
-
