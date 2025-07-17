@@ -54,18 +54,24 @@ let cars = [
         "registration": new Date('2018-03-03'),
         "capacity": 5
     },
+    {
+        'color': 'test',
+        'type': 'tttttt',
+        'registration': new Date('2018-03-03'),
+        'capacity': 5
+    }
 ];
 
-console.log(`\n\nBefore Splice()\n`, cars);
+console.log(`\n\nBefore Splice() ==\n`, cars);
 
 let car = {
-    "color": "red",
+    "color": "new red",
     "type": "cabrio",
     "registration": new Date('2016-05-02'),
     "capacity": 2
 }
 
-cars.splice(1, 0, car);//1 -> starting position, 0 -> delete count, car object to insert
+cars.splice(1, 2, car);//1 -> starting position or the position you want to place the element, 2 -> delete count or no. of an element you want to delete it after the start position
 console.log(`\nAfter Splice()`, cars)
 
 console.log('\n************ Array.map *************')
@@ -126,8 +132,8 @@ Typically, the sorting is based on the value of a property every object has.
 We can use the Array.sort function.
 */
 
-// NOTE: Make sure to always add the case for zero
-// when the compared value of both objects is the same to avoid unnecessary swaps.
+// NOTE: Make sure to always add the case for zero when the compared value of both objects
+// is the same to avoid unnecessary swaps.
 
 
 let sortedCars = cars.sort((c1, c2) =>

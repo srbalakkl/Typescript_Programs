@@ -1,4 +1,4 @@
-/**
+ /**
  * @description Enums allow a developer to define a set of named constants.
  * TypeScript provides both numeric and string-based enums.
  *
@@ -139,4 +139,4 @@ interface Square {
 
 /***********/
 
-// Note : always give Enum name as Enum
+// Note: always give Enum name as Enum

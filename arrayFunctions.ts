@@ -51,9 +51,9 @@ console.log(`\nBef map with accumulator: ${a}`)
 // It will take 1st variable as the `current value' & the second variable as the index value
 
 // i.e [10,2,20,23,40] is calculated as 10*0, 2*1, 20*2, 23*3, 40*4
-result = a.map((curr_value, value) => {
+result = a.map((curr_value, index) => {
     // NOTE: Map support current value only, not accumulator.
-    return curr_value * value
+    return curr_value * index
     // op = [0,2,40,69,160]
 });
 console.log(`Aft map with accumulator ${result}`)
